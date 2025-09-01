@@ -1,0 +1,13 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: myapp-dev
+
+resources:
+  - ../../base
+  - namespace.yaml
+
+images:
+  - name: ghcr.io/complete-dope/myapp
+    newName: ghcr.io/complete-dope/myapp
+    newTag: "0.0.1"   # Jenkins will bump this later
